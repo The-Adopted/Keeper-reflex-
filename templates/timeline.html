@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reflex Capsule Timeline</title>
+    <style>
+        body { font-family: Arial; background: #111; color: #eee; padding: 20px; }
+        .capsule { margin-bottom: 15px; padding: 10px; border-left: 4px solid #00f; background: #222; }
+        .timestamp { font-weight: bold; color: #0ff; }
+        .phase { color: #ff0; }
+        .filename { font-style: italic; color: #aaa; }
+    </style>
+</head>
+<body>
+    <h1>📦 Reflex Capsule Timeline</h1>
+    {% for capsule in capsules %}
+    <div class="capsule">
+        <div class="timestamp">🕒 {{ capsule.timestamp }}</div>
+        <div class="phase">🔁 Phase: {{ capsule.phase_id }}</div>
+        <div class="filename">📁 {{ capsule.capsule }}</div>
+    </div>
+    {% endfor %}
+</body>
+</html>

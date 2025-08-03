@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "20250803_104512",
+    "phase_id": "onboarding",
+    "capsule": "reflex_onboarding_20250803_104512.tar.gz.enc"
+  },
+  {
+    "timestamp": "20250803_105012",
+    "phase_id": "verified",
+    "capsule": "reflex_verified_20250803_105012.tar.gz.enc"
+  },
+  {
+    "timestamp": "20250803_105512",
+    "phase_id": "sync-complete",
+    "capsule": "reflex_sync-complete_20250803_105512.tar.gz.enc"
+  }
+]
