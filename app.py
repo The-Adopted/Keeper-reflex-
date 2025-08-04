@@ -3,19 +3,26 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/')
-def timeline():
+def load_capsules():
     try:
-        with open('dashboard/capsule_timeline.json') as f:
-            data = json.load(f)
-    except FileNotFoundError:
-        data = {}
-    return render_template('timeline.html', data=data)
+        with open('runtime/reflex_capsules.json') as f:
+            capsules = json.load(f)
+            print(f"🧠 Loaded {len(capsules)} capsules")
+            for c in capsules:
+                print(f"📦 Capsule: {c['title']} | Reflex Weight: {c['reflex_weight']}")
+            return capsules
+    except Exception as e:
+        print(f"⚠️ Capsule load error: {e}")
+        return []
+
+@app.route('/')
+def index():
+    capsules = load_capsules()
+    return render_template('index.html', capsules=capsules)
 
 @app.route('/api/capsules')
 def api_capsules():
-    with open('dashboard/capsule_timeline.json') as f:
-        return jsonify(json.load(f))
+    return jsonify(load_capsules())
 
 if __name__ == '__main__':
     app.run(debug=True)
