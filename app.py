@@ -1,5 +1,7 @@
 from flask import Flask, render_template, jsonify
 import json
+import os
+app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
 
 app = Flask(__name__)
 
