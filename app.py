@@ -1,32 +1,37 @@
-from flask import Flask, render_template, jsonify
-import json
+from flask import Flask, jsonify
 import os
-app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+import logging
 
 app = Flask(__name__)
 
-def load_capsules():
-    try:
-        with open('runtime/reflex_capsules.json') as f:
-            capsules = json.load(f)
-            print(f"🧠 Loaded {len(capsules)} capsules")
-            for c in capsules:
-                print(f"📦 Capsule: {c['title']} | Reflex Weight: {c['reflex_weight']}")
-            return capsules
-    except Exception as e:
-        print(f"⚠️ Capsule load error: {e}")
-        return []
+# Setup basic logging
+logging.basicConfig(level=logging.INFO)
 
+# Health check route
+@app.route('/health')
+def health():
+    app.logger.info("Health check accessed")
+    return jsonify({"status": "ok"}), 200
+
+# Homepage or root route
 @app.route('/')
-def index():
-    capsules = load_capsules()
-    return render_template('index.html', capsules=capsules)
+def home():
+    app.logger.info("Homepage accessed")
+    return jsonify({
+        "message": "Welcome to Keeper Reflex Dashboard",
+        "status": "running"
+    })
 
-@app.route('/api/capsules')
-def api_capsules():
-    return jsonify(load_capsules())
+# Reflex capsule preview route (placeholder)
+@app.route('/capsule-preview')
+def capsule_preview():
+    app.logger.info("Capsule preview accessed")
+    return jsonify({
+        "capsule": "Reflex Capsule Timeline",
+        "status": "preview-ready"
+    })
 
+# Run the app with Railway-compatible port binding
 if __name__ == '__main__':
-import os
-app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
-
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
