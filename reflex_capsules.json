@@ -5,7 +5,8 @@
     "reflex_weight": 0.87,
     "phase": "echo",
     "commentary": "Phase 3 echo detected with high volatility",
-    "heatmap": "static/heatmap-phase3.png"
+    "heatmap": "static/heatmap-phase3.png",
+    "timestamp": "2025-08-04T21:00:00Z"
   },
   {
     "capsule_id": "trigger-alpha",
@@ -13,6 +14,7 @@
     "reflex_weight": 0.65,
     "phase": "alpha",
     "commentary": "Trigger Alpha shows moderate reflex strength",
-    "heatmap": "static/heatmap-alpha.png"
+    "heatmap": "static/heatmap-alpha.png",
+    "timestamp": "2025-08-04T20:30:00Z"
   }
 ]
