@@ -1,1 +1,18 @@
-{"timestamp": "2025-08-03T14:55:47.311477", "event": "Tunnel failed", "commentary": "Fallback to local preview successful", "tags": ["reflex", "resilience", "offline-mode"]}
+[
+  {
+    "capsule_id": "phase-3-echo",
+    "overlay_type": "sentiment",
+    "reflex_weight": 0.87,
+    "phase": "echo",
+    "commentary": "Phase 3 echo detected with high volatility",
+    "heatmap": "static/heatmap-phase3.png"
+  },
+  {
+    "capsule_id": "trigger-alpha",
+    "overlay_type": "volatility",
+    "reflex_weight": 0.65,
+    "phase": "alpha",
+    "commentary": "Trigger Alpha shows moderate reflex strength",
+    "heatmap": "static/heatmap-alpha.png"
+  }
+]
